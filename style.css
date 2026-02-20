@@ -56,12 +56,16 @@ code {
 }
 .code-block code,
 .code-block code span,
-.getstarted-block code {
+.getstarted-block code,
+.getstarted-block code span {
   background: none;
   padding: 0;
   border-radius: 0;
-  color: inherit;
   font-size: inherit;
+}
+.code-block code,
+.getstarted-block code {
+  color: inherit;
 }
 
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
@@ -371,6 +375,9 @@ code {
 .fn { color: #60a5fa; }
 .str { color: #4ade80; }
 .cmt { color: #5a657a; }
+.cmd { color: #60a5fa; }
+.op { color: #c084fc; }
+.num { color: #f59e0b; }
 
 /* ── Get Started ─────────────────────────────── */
 .getstarted-section { padding: 80px 0 100px; background: var(--cream); }

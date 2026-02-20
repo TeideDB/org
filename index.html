@@ -269,47 +269,47 @@
       <div class="getstarted-grid">
         <div class="getstarted-block">
           <h3>C Core</h3>
-          <pre><code>git clone https://github.com/TeideDB/teide.git
-cd teide
+          <pre><code><span class="cmd">git clone</span> <span class="str">https://github.com/TeideDB/teide.git</span>
+<span class="cmd">cd</span> teide
 
-cmake -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build
+<span class="cmd">cmake</span> -B build -DCMAKE_BUILD_TYPE=Release
+<span class="cmd">cmake</span> --build build
 
-cd build &amp;&amp; ctest --output-on-failure</code></pre>
+<span class="cmd">cd</span> build <span class="op">&amp;&amp;</span> <span class="cmd">ctest</span> --output-on-failure</code></pre>
         </div>
 
         <div class="getstarted-block">
           <h3>Python</h3>
-          <pre><code>pip install teide</code></pre>
+          <pre><code><span class="cmd">pip install</span> teide</code></pre>
           <p>Or build from source:</p>
-          <pre><code>git clone https://github.com/TeideDB/teide-py.git
-cd teide-py
-pip install -e .</code></pre>
+          <pre><code><span class="cmd">git clone</span> <span class="str">https://github.com/TeideDB/teide-py.git</span>
+<span class="cmd">cd</span> teide-py
+<span class="cmd">pip install</span> -e .</code></pre>
         </div>
 
         <div class="getstarted-block">
           <h3>Rust / SQL</h3>
-          <pre><code>git clone https://github.com/TeideDB/teide-rs.git
-cd teide-rs
-cargo build --all-features
+          <pre><code><span class="cmd">git clone</span> <span class="str">https://github.com/TeideDB/teide-rs.git</span>
+<span class="cmd">cd</span> teide-rs
+<span class="cmd">cargo build</span> --all-features
 
-# Interactive REPL
-cargo run --features cli
+<span class="cmt"># Interactive REPL</span>
+<span class="cmd">cargo run</span> --features cli
 
-# PostgreSQL server
-cargo run --features server -- --port 5433</code></pre>
+<span class="cmt"># PostgreSQL server</span>
+<span class="cmd">cargo run</span> --features server -- --port <span class="num">5433</span></code></pre>
         </div>
 
         <div class="getstarted-block">
           <h3>Mirador (Visual Editor)</h3>
-          <pre><code>git clone https://github.com/TeideDB/mirador.git
-cd mirador
+          <pre><code><span class="cmd">git clone</span> <span class="str">https://github.com/TeideDB/mirador.git</span>
+<span class="cmd">cd</span> mirador
 
-# Backend
-uv sync &amp;&amp; uv run uvicorn mirador.app:app --port 8000
+<span class="cmt"># Backend</span>
+<span class="cmd">uv sync</span> <span class="op">&amp;&amp;</span> <span class="cmd">uv run</span> uvicorn mirador.app:app --port <span class="num">8000</span>
 
-# Frontend
-cd frontend &amp;&amp; npm install &amp;&amp; npm run dev</code></pre>
+<span class="cmt"># Frontend</span>
+<span class="cmd">cd</span> frontend <span class="op">&amp;&amp;</span> <span class="cmd">npm install</span> <span class="op">&amp;&amp;</span> <span class="cmd">npm run</span> dev</code></pre>
           <p>Open <a href="http://localhost:8000" target="_blank" rel="noopener">localhost:8000</a> to start building pipelines visually.</p>
         </div>
       </div>
