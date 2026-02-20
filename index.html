@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeideDB — High-Performance Columnar Engine</title>
+  <meta name="description" content="Open-source columnar dataframe engine. Pure C17, zero dependencies, lazy fusion optimizer. Python and Rust bindings. Faster than DuckDB on H2O.ai benchmarks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/teide-logo.svg" type="image/svg+xml">
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="container">
+      <a href="#" class="nav-brand">
+        <img src="assets/teide-logo.svg" alt="TeideDB" width="28" height="28">
+        TeideDB
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#benchmarks">Benchmarks</a></li>
+        <li><a href="#code">Example</a></li>
+        <li><a href="#getstarted">Get Started</a></li>
+        <li>
+          <a href="https://github.com/TeideDB" class="nav-github" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-decor">
+      <div class="stripe stripe-1"></div>
+      <div class="stripe stripe-2"></div>
+      <div class="stripe stripe-3"></div>
+      <div class="stripe stripe-4"></div>
+    </div>
+    <svg class="hero-mountain" viewBox="0 0 800 400" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#4b6777" d="M0,400 L0,350 L160,60 L185,95 L290,0 L330,80 L360,60 L440,220 L400,100 L380,115 L340,70 L320,300 L300,175 L240,300 L225,240 L165,310 L155,265 L60,380 Z"/>
+    </svg>
+    <div class="container">
+      <div class="hero-content">
+        <h1>Columnar engine <span class="accent">from scratch</span></h1>
+        <div class="hero-chips">
+          <span class="chip">Pure C17</span>
+          <span class="chip">Zero dependencies</span>
+          <span class="chip">Lazy fusion</span>
+          <span class="chip">Python &amp; Rust</span>
+        </div>
+        <p class="hero-subtitle">High-performance columnar dataframe engine with lazy pipeline API, automatic fusion optimization, custom memory management, and language bindings. Everything built from the ground up.</p>
+        <div class="hero-buttons">
+          <a href="#getstarted" class="btn btn-primary">Get started</a>
+          <a href="https://github.com/TeideDB" class="btn btn-outline" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-label">WHAT MAKES TEIDE DIFFERENT</div>
+      <div class="features-grid">
+
+        <div class="feature-item">
+          <div class="feature-number">01</div>
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Nothing to install</h3>
+          <p>Pure C17 with zero external dependencies. No package manager, no vendored libraries. One public header file, cmake, and a C compiler. That's it.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-number">02</div>
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3>Describe, don't execute</h3>
+          <p>Build a pipeline of filter, group, sort, and join operations lazily. Nothing runs until you call <code>.collect()</code>. The optimizer rewrites your pipeline automatically&mdash;fusing passes, pushing predicates, eliminating dead branches.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-number">03</div>
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          </div>
+          <h3>Purpose-built internals</h3>
+          <p>Custom buddy allocator with COW ref counting. Morsel-driven execution processes 1024-element tiles at a time. Thread pool with lock-free dispatch. Every layer designed for columnar workloads.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <div class="section-label">ECOSYSTEM</div>
+      <h2 class="section-title">Built together, works together</h2>
+      <p class="section-subtitle">Five repositories, one engine. From the C core to visual analytics.</p>
+
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3>teide</h3>
+            <span class="project-badge badge-c">C17</span>
+          </div>
+          <p>The core engine. Columnar dataframe library with lazy DAG execution, 7-pass optimizer (type inference, constant fold, predicate pushdown, CSE, fusion, DCE), and morsel-driven parallel executor. Single public header.</p>
+          <a href="https://github.com/TeideDB/teide" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">View repo</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3>teide-rs</h3>
+            <span class="project-badge badge-rust">Rust</span>
+          </div>
+          <p>Rust bindings with SQL frontend, interactive REPL with syntax highlighting and tab completion, and PostgreSQL wire protocol server. Connect with <code>psql</code>, DBeaver, or any PG client.</p>
+          <a href="https://github.com/TeideDB/teide-rs" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">View repo</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3>teide-py</h3>
+            <span class="project-badge badge-python">Python</span>
+          </div>
+          <p>Python bindings with lazy evaluation, automatic query optimization, morsel-driven parallel execution across all cores, and zero-copy NumPy interop for numeric columns.</p>
+          <a href="https://github.com/TeideDB/teide-py" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">View repo</a>
+        </div>
+
+        <div class="project-card">
+          <div class="project-header">
+            <h3>Mirador</h3>
+            <span class="project-badge badge-react">React</span>
+            <span class="project-badge badge-python">Python</span>
+          </div>
+          <p>Visual data pipeline editor. Drag-and-drop nodes, SQL and form modes, live data grid and chart preview, PDF report engine with markdown templates, dashboard builder. Backed by Teide.</p>
+          <a href="https://github.com/TeideDB/mirador" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">View repo</a>
+        </div>
+
+        <div class="project-card" style="grid-column: 1 / -1;">
+          <div class="project-header">
+            <h3>teide-bench</h3>
+            <span class="project-badge badge-bench">Benchmarks</span>
+          </div>
+          <p>H2O.ai benchmark suite comparing Teide against DuckDB on 10M-row datasets. Groupby, sort, and join queries. Teide runs single-process; DuckDB uses all 28 threads. Results below.</p>
+          <a href="https://github.com/TeideDB/teide-bench" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">View repo</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Benchmarks -->
+  <section id="benchmarks" class="bench-section">
+    <div class="container">
+      <div class="section-label">PERFORMANCE</div>
+      <h2 class="section-title">Faster than you'd expect</h2>
+      <p class="section-subtitle">H2O.ai benchmarks, 10 million rows. Teide single-process vs DuckDB with 28 threads.</p>
+
+      <div class="bench-highlights">
+        <div class="bench-stat">
+          <div class="bench-value">2.2ms</div>
+          <div class="bench-label">Groupby q1 (SUM)</div>
+        </div>
+        <div class="bench-stat">
+          <div class="bench-value">3.7x</div>
+          <div class="bench-label">vs DuckDB (28 threads)</div>
+        </div>
+        <div class="bench-stat">
+          <div class="bench-value">101ms</div>
+          <div class="bench-label">Sort 10M rows</div>
+        </div>
+        <div class="bench-stat">
+          <div class="bench-value">87ms</div>
+          <div class="bench-label">Inner join (3-key)</div>
+        </div>
+      </div>
+
+      <div class="bench-table-wrap fade-in-up">
+        <table class="bench-table">
+          <thead>
+            <tr>
+              <th>Query</th>
+              <th>Teide (1 proc)</th>
+              <th>DuckDB (28 thr)</th>
+              <th>Speedup</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>q1 &mdash; id1, SUM</td><td class="mono">2.2ms</td><td class="mono">8.1ms</td><td class="speedup">3.7x</td></tr>
+            <tr><td>q2 &mdash; id1+id2, SUM</td><td class="mono">6.8ms</td><td class="mono">21.5ms</td><td class="speedup">3.2x</td></tr>
+            <tr><td>q3 &mdash; id3, SUM+AVG</td><td class="mono">18ms</td><td class="mono">65ms</td><td class="speedup">3.6x</td></tr>
+            <tr><td>q5 &mdash; id6, 3xSUM</td><td class="mono">32ms</td><td class="mono">52ms</td><td class="speedup">1.6x</td></tr>
+            <tr><td>q7 &mdash; 6-key, SUM+COUNT</td><td class="mono">82ms</td><td class="mono">177ms</td><td class="speedup">2.2x</td></tr>
+            <tr><td>sort s1 &mdash; id1 ASC</td><td class="mono">101ms</td><td class="mono">181ms</td><td class="speedup">1.8x</td></tr>
+            <tr><td>sort s6 &mdash; 3-key ASC</td><td class="mono">155ms</td><td class="mono">434ms</td><td class="speedup">2.8x</td></tr>
+            <tr><td>join j1 &mdash; inner, 3-key</td><td class="mono">87ms</td><td class="mono">93ms</td><td class="speedup">1.1x</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="bench-note">10M rows, H2O.ai datasets. Teide single-process on the same machine where DuckDB uses 28 threads. See <a href="https://github.com/TeideDB/teide-bench" target="_blank" rel="noopener">teide-bench</a> for full methodology.</p>
+    </div>
+  </section>
+
+  <!-- Code Example -->
+  <section id="code" class="code-section">
+    <div class="container">
+      <div class="section-label">PYTHON API</div>
+      <h2 class="code-section-title">Build a lazy pipeline, call .collect()</h2>
+      <p class="code-section-subtitle">Nothing executes until you ask for results. The optimizer handles the rest.</p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-dot red"></span>
+          <span class="code-dot yellow"></span>
+          <span class="code-dot green"></span>
+          <span class="code-filename">example.py</span>
+        </div>
+        <button class="copy-btn" data-copy>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy
+        </button>
+        <pre><code><span class="kw">from</span> <span class="fn">teide</span> <span class="kw">import</span> Context, col
+
+<span class="kw">with</span> <span class="fn">Context</span>() <span class="kw">as</span> ctx:
+    df = ctx.<span class="fn">read_csv</span>(<span class="str">"measurements.csv"</span>)
+
+    <span class="cmt"># Build pipeline — nothing executes yet</span>
+    result = (
+        df.<span class="fn">filter</span>(<span class="fn">col</span>(<span class="str">"region"</span>) == <span class="str">"EU"</span>)
+          .<span class="fn">group_by</span>(<span class="str">"product"</span>)
+          .<span class="fn">agg</span>(
+              <span class="fn">col</span>(<span class="str">"revenue"</span>).<span class="fn">sum</span>(),
+              <span class="fn">col</span>(<span class="str">"price"</span>).<span class="fn">mean</span>(),
+          )
+          .<span class="fn">sort</span>(<span class="str">"revenue_sum"</span>, descending=<span class="kw">True</span>)
+          .<span class="fn">collect</span>()
+    )
+
+    <span class="fn">print</span>(result)</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Get Started -->
+  <section id="getstarted" class="getstarted-section">
+    <div class="container">
+      <div class="section-label">GETTING STARTED</div>
+      <h2 class="getstarted-title">Up and running in seconds</h2>
+      <p class="getstarted-subtitle">No package manager needed. Just cmake and a C compiler.</p>
+
+      <div class="getstarted-grid">
+        <div class="getstarted-block">
+          <h3>C Core</h3>
+          <pre><code>git clone https://github.com/TeideDB/teide.git
+cd teide
+
+cmake -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build
+
+cd build &amp;&amp; ctest --output-on-failure</code></pre>
+        </div>
+
+        <div class="getstarted-block">
+          <h3>Python</h3>
+          <pre><code>pip install teide</code></pre>
+          <p>Or build from source:</p>
+          <pre><code>git clone https://github.com/TeideDB/teide-py.git
+cd teide-py
+pip install -e .</code></pre>
+        </div>
+
+        <div class="getstarted-block">
+          <h3>Rust / SQL</h3>
+          <pre><code>git clone https://github.com/TeideDB/teide-rs.git
+cd teide-rs
+cargo build --all-features
+
+# Interactive REPL
+cargo run --features cli
+
+# PostgreSQL server
+cargo run --features server -- --port 5433</code></pre>
+        </div>
+
+        <div class="getstarted-block">
+          <h3>Mirador (Visual Editor)</h3>
+          <pre><code>git clone https://github.com/TeideDB/mirador.git
+cd mirador
+
+# Backend
+uv sync &amp;&amp; uv run uvicorn mirador.app:app --port 8000
+
+# Frontend
+cd frontend &amp;&amp; npm install &amp;&amp; npm run dev</code></pre>
+          <p>Open <a href="http://localhost:8000" target="_blank" rel="noopener">localhost:8000</a> to start building pipelines visually.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="https://github.com/TeideDB" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/TeideDB/teide" target="_blank" rel="noopener">Core Engine</a>
+        <a href="https://github.com/TeideDB/teide-bench" target="_blank" rel="noopener">Benchmarks</a>
+        <a href="https://github.com/TeideDB/teide/blob/main/LICENSE" target="_blank" rel="noopener">MIT License</a>
+      </div>
+      <p>TeideDB &mdash; Pure C17. MIT License.</p>
+    </div>
+  </footer>
+
+  <!-- Scroll-to-top -->
+  <button class="scroll-top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
