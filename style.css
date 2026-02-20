@@ -54,6 +54,15 @@ code {
   padding: 2px 6px;
   border-radius: 4px;
 }
+.code-block code,
+.code-block code span,
+.getstarted-block code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+  font-size: inherit;
+}
 
 .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
 
@@ -312,6 +321,7 @@ code {
 .bench-table tr:last-child td { border-bottom: none; }
 .bench-table tr:hover td { background: var(--primary-bg); }
 .bench-table .mono { font-family: var(--mono); font-size: .8rem; }
+.bench-table .fastest { font-weight: 700; color: var(--primary); }
 .bench-table .speedup { font-weight: 700; color: var(--primary); }
 .bench-note { font-size: .8rem; color: var(--gray-text); margin-top: 16px; font-style: italic; }
 

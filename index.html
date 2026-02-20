@@ -47,8 +47,8 @@
       <div class="stripe stripe-3"></div>
       <div class="stripe stripe-4"></div>
     </div>
-    <svg class="hero-mountain" viewBox="0 0 800 400" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
-      <path fill="#4b6777" d="M0,400 L0,350 L160,60 L185,95 L290,0 L330,80 L360,60 L440,220 L400,100 L380,115 L340,70 L320,300 L300,175 L240,300 L225,240 L165,310 L155,265 L60,380 Z"/>
+    <svg class="hero-mountain" viewBox="0 0 48 32" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#4b6777" d="M0 31 L19.2 4.2 L22.3 7.7 L32.6 0 L37.4 6.4 L40 4.6 L47.7 17.6 L39.3 7.5 L37.1 9 L32.5 2.9 L30.7 15.7 L28.3 12.4 L23 22.3 L21.1 16.7 L13.8 24 L12.6 20.6 Z"/>
     </svg>
     <div class="container">
       <div class="hero-content">
@@ -159,7 +159,7 @@
             <h3>teide-bench</h3>
             <span class="project-badge badge-bench">Benchmarks</span>
           </div>
-          <p>H2O.ai benchmark suite comparing Teide against DuckDB on 10M-row datasets. Groupby, sort, and join queries. Teide runs single-process; DuckDB uses all 28 threads. Results below.</p>
+          <p>H2O.ai benchmark suite comparing Teide against DuckDB and Polars on 10M-row datasets. Groupby, sort, and join queries. Results below.</p>
           <a href="https://github.com/TeideDB/teide-bench" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">View repo</a>
         </div>
 
@@ -172,23 +172,23 @@
     <div class="container">
       <div class="section-label">PERFORMANCE</div>
       <h2 class="section-title">Faster than you'd expect</h2>
-      <p class="section-subtitle">H2O.ai benchmarks, 10 million rows. Teide single-process vs DuckDB with 28 threads.</p>
+      <p class="section-subtitle">H2O.ai benchmarks, 10 million rows. Teide vs DuckDB vs Polars.</p>
 
       <div class="bench-highlights">
         <div class="bench-stat">
-          <div class="bench-value">2.2ms</div>
+          <div class="bench-value">2.4ms</div>
           <div class="bench-label">Groupby q1 (SUM)</div>
         </div>
         <div class="bench-stat">
-          <div class="bench-value">3.7x</div>
-          <div class="bench-label">vs DuckDB (28 threads)</div>
+          <div class="bench-value">3.2x</div>
+          <div class="bench-label">vs DuckDB (28 thr)</div>
         </div>
         <div class="bench-stat">
-          <div class="bench-value">101ms</div>
-          <div class="bench-label">Sort 10M rows</div>
+          <div class="bench-value">9.8x</div>
+          <div class="bench-label">vs Polars</div>
         </div>
         <div class="bench-stat">
-          <div class="bench-value">87ms</div>
+          <div class="bench-value">85ms</div>
           <div class="bench-label">Inner join (3-key)</div>
         </div>
       </div>
@@ -198,24 +198,24 @@
           <thead>
             <tr>
               <th>Query</th>
-              <th>Teide (1 proc)</th>
-              <th>DuckDB (28 thr)</th>
-              <th>Speedup</th>
+              <th>Teide</th>
+              <th>DuckDB</th>
+              <th>Polars</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>q1 &mdash; id1, SUM</td><td class="mono">2.2ms</td><td class="mono">8.1ms</td><td class="speedup">3.7x</td></tr>
-            <tr><td>q2 &mdash; id1+id2, SUM</td><td class="mono">6.8ms</td><td class="mono">21.5ms</td><td class="speedup">3.2x</td></tr>
-            <tr><td>q3 &mdash; id3, SUM+AVG</td><td class="mono">18ms</td><td class="mono">65ms</td><td class="speedup">3.6x</td></tr>
-            <tr><td>q5 &mdash; id6, 3xSUM</td><td class="mono">32ms</td><td class="mono">52ms</td><td class="speedup">1.6x</td></tr>
-            <tr><td>q7 &mdash; 6-key, SUM+COUNT</td><td class="mono">82ms</td><td class="mono">177ms</td><td class="speedup">2.2x</td></tr>
-            <tr><td>sort s1 &mdash; id1 ASC</td><td class="mono">101ms</td><td class="mono">181ms</td><td class="speedup">1.8x</td></tr>
-            <tr><td>sort s6 &mdash; 3-key ASC</td><td class="mono">155ms</td><td class="mono">434ms</td><td class="speedup">2.8x</td></tr>
-            <tr><td>join j1 &mdash; inner, 3-key</td><td class="mono">87ms</td><td class="mono">93ms</td><td class="speedup">1.1x</td></tr>
+            <tr><td>q1 &mdash; id1, SUM</td><td class="mono fastest">2.4ms</td><td class="mono">7.6ms</td><td class="mono">23.6ms</td></tr>
+            <tr><td>q2 &mdash; id1+id2, SUM</td><td class="mono fastest">5.7ms</td><td class="mono">21.5ms</td><td class="mono">125.7ms</td></tr>
+            <tr><td>q3 &mdash; id3, SUM+AVG</td><td class="mono fastest">18.2ms</td><td class="mono">67.7ms</td><td class="mono">131.5ms</td></tr>
+            <tr><td>q5 &mdash; id6, 3xSUM</td><td class="mono fastest">31.5ms</td><td class="mono">52.8ms</td><td class="mono">85.4ms</td></tr>
+            <tr><td>q7 &mdash; 6-key, SUM+COUNT</td><td class="mono fastest">84.7ms</td><td class="mono">180.5ms</td><td class="mono">789.0ms</td></tr>
+            <tr><td>sort s1 &mdash; id1 ASC</td><td class="mono fastest">101.9ms</td><td class="mono">188.1ms</td><td class="mono">334.6ms</td></tr>
+            <tr><td>sort s6 &mdash; 3-key ASC</td><td class="mono fastest">154.9ms</td><td class="mono">442.2ms</td><td class="mono">797.0ms</td></tr>
+            <tr><td>join j1 &mdash; inner, 3-key</td><td class="mono fastest">85.2ms</td><td class="mono">94.3ms</td><td class="mono">223.6ms</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="bench-note">10M rows, H2O.ai datasets. Teide single-process on the same machine where DuckDB uses 28 threads. See <a href="https://github.com/TeideDB/teide-bench" target="_blank" rel="noopener">teide-bench</a> for full methodology.</p>
+      <p class="bench-note">10M rows, H2O.ai datasets. DuckDB 1.4.3 (28 threads), Polars 1.35.2. See <a href="https://github.com/TeideDB/teide-bench" target="_blank" rel="noopener">teide-bench</a> for full methodology.</p>
     </div>
   </section>
 
