@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TeideDB — High-Performance Columnar Engine</title>
-  <meta name="description" content="Open-source columnar dataframe engine. Pure C17, zero dependencies, lazy fusion optimizer. Python and Rust bindings. Faster than DuckDB on H2O.ai benchmarks.">
+  <meta name="description" content="Open-source columnar engine with native graph processing. Analytics and graph traversal in one pipeline, without compromise. Pure C17, zero dependencies, lazy fusion optimizer. Python and Rust bindings.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -57,9 +57,10 @@
           <span class="chip">Pure C17</span>
           <span class="chip">Zero dependencies</span>
           <span class="chip">Lazy fusion</span>
+          <span class="chip">Graph engine</span>
           <span class="chip">Python &amp; Rust</span>
         </div>
-        <p class="hero-subtitle">High-performance columnar dataframe engine with lazy pipeline API, automatic fusion optimization, custom memory management, and language bindings. Everything built from the ground up.</p>
+        <p class="hero-subtitle">Analytics and graph processing in one engine, without compromise. Columnar scans, joins, and aggregations at full speed&mdash;plus native graph traversal, pattern matching, and shortest paths. Everything built from the ground up.</p>
         <div class="hero-buttons">
           <a href="#getstarted" class="btn btn-primary">Get started</a>
           <a href="https://github.com/TeideDB" class="btn btn-outline" target="_blank" rel="noopener">
@@ -92,11 +93,20 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
           </div>
           <h3>Describe, don't execute</h3>
-          <p>Build a pipeline of filter, group, sort, and join operations lazily. Nothing runs until you call <code>.collect()</code>. The optimizer rewrites your pipeline automatically&mdash;fusing passes, pushing predicates, eliminating dead branches.</p>
+          <p>Build a pipeline of filter, group, sort, join, and graph traversal operations lazily. Nothing runs until you call <code>.collect()</code>. The optimizer rewrites your pipeline automatically&mdash;fusing passes, pushing predicates, eliminating dead branches.</p>
         </div>
 
         <div class="feature-item">
           <div class="feature-number">03</div>
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><line x1="9" y1="6" x2="15" y2="6"/><line x1="6" y1="9" x2="6" y2="15"/><line x1="18" y1="9" x2="18" y2="15"/><line x1="9" y1="18" x2="15" y2="18"/><line x1="8.5" y1="8.5" x2="15.5" y2="15.5"/></svg>
+          </div>
+          <h3>Native graph engine</h3>
+          <p>Graph traversal lives next to columnar analytics&mdash;same pipeline, same optimizer, no glue layer. Neighbor expansion, BFS, shortest path, and worst-case optimal joins for pattern matching. The optimizer prunes dead-end paths before traversal even begins.</p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-number">04</div>
           <div class="feature-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
           </div>
@@ -122,7 +132,7 @@
             <h3>teide</h3>
             <span class="project-badge badge-c">C17</span>
           </div>
-          <p>The core engine. Columnar dataframe library with lazy DAG execution, 7-pass optimizer (type inference, constant fold, predicate pushdown, CSE, fusion, DCE), and morsel-driven parallel executor. Single public header.</p>
+          <p>The core engine. Columnar analytics and native graph processing in one library. Lazy DAG execution, 8-pass optimizer, CSR edge indices, worst-case optimal joins, factorized execution, and morsel-driven parallel executor. Single public header.</p>
           <a href="https://github.com/TeideDB/teide" class="btn btn-sm btn-ghost" target="_blank" rel="noopener">View repo</a>
         </div>
 
