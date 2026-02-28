@@ -175,7 +175,7 @@ code {
 }
 .hero-subtitle {
   font-size: 1.15rem; color: var(--gray-text);
-  max-width: 560px; line-height: 1.7; margin-bottom: 36px;
+  max-width: 620px; line-height: 1.7; margin-bottom: 36px;
 }
 .hero-buttons { display: flex; gap: 12px; flex-wrap: wrap; }
 
@@ -240,7 +240,7 @@ code {
 }
 .feature-icon svg { width: 100%; height: 100%; }
 .feature-item h3 {
-  font-family: var(--font-heading); font-size: 1.75rem; font-weight: 600;
+  font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600;
   color: var(--text); margin-bottom: 12px;
 }
 .feature-item p { color: var(--gray-text); font-size: .95rem; line-height: 1.7; }
@@ -261,7 +261,6 @@ code {
   background: var(--white); border: 1px solid rgba(75,103,119,.08);
   border-radius: 16px; padding: 28px;
   display: flex; flex-direction: column;
-  transition: box-shadow .3s ease, transform .3s ease;
   opacity: 0; transform: translateY(30px);
   transition: opacity .6s ease, transform .6s ease, box-shadow .3s ease;
 }
