@@ -103,7 +103,7 @@ code {
 }
 .nav-links a {
   color: var(--gray-text); font-size: .875rem; font-weight: 500;
-  padding: 6px 14px; border-radius: 100px;
+  padding: 6px 14px; border-radius: 100px; white-space: nowrap;
   transition: color .2s, background .2s; text-decoration: none;
 }
 .nav-links a:hover {
